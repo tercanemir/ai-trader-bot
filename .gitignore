@@ -1,0 +1,13 @@
+.env
+.env.local
+*.token
+.token
+.followed.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+logs/
+*.log

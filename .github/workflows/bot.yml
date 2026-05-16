@@ -1,0 +1,38 @@
+name: AI-Trader bot tick
+
+on:
+  schedule:
+    # Every 5 minutes. Note: GitHub may delay cron jobs during peak load.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: bot-tick
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      AI4TRADE_TOKEN: ${{ secrets.AI4TRADE_TOKEN }}
+      AI4TRADE_AGENT_NAME: emir-bot
+      HEARTBEAT_INTERVAL_SECONDS: "30"
+      COPY_TOP_N: "3"
+      MIN_WIN_RATE: "0.55"
+      DRY_RUN: ${{ vars.DRY_RUN || 'true' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run tick
+        run: python tick.py
