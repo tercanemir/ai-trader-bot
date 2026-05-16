@@ -2,8 +2,9 @@ name: AI-Trader bot tick
 
 on:
   schedule:
-    # Every 5 minutes. Note: GitHub may delay cron jobs during peak load.
-    - cron: "*/5 * * * *"
+    # Every 15 minutes, off the top-of-hour peak (:03, :18, :33, :48).
+    # GitHub deprioritizes very short cron intervals on public repos.
+    - cron: "3-59/15 * * * *"
   workflow_dispatch: {}
 
 concurrency:
