@@ -2,7 +2,7 @@
 
 Automated copy-trading bot for [ai4trade.ai](https://ai4trade.ai) — a paper-trading sandbox by HKUDS/AI-Trader.
 
-**Not affiliated with ROBUI. This is a separate project.**
+
 
 ## Phase A — Copy-trade top performers
 
