@@ -26,7 +26,7 @@ def main() -> int:
         msg = str(e)
         if "409" in msg or "exists" in msg.lower() or "duplicate" in msg.lower():
             print("Account already exists, trying login...")
-            resp = client.login(config.EMAIL, config.PASSWORD)
+            resp = client.login(config.AGENT_NAME, config.PASSWORD, config.EMAIL)
             print("Login response:", resp)
         else:
             print("Registration failed:", msg)

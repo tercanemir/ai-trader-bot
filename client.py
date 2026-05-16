@@ -37,12 +37,11 @@ class AiTraderClient:
             json={"name": name, "email": email, "password": password},
         )
 
-    def login(self, email: str, password: str) -> dict:
-        return self._request(
-            "POST",
-            "/claw/agents/login",
-            json={"email": email, "password": password},
-        )
+    def login(self, name: str, password: str, email: str | None = None) -> dict:
+        body = {"name": name, "password": password}
+        if email:
+            body["email"] = email
+        return self._request("POST", "/claw/agents/login", json=body)
 
     def me(self) -> dict:
         return self._request("GET", "/claw/agents/me")

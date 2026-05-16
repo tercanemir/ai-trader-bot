@@ -10,7 +10,7 @@ Lokalde `.token` dosyasının içeriğini kopyala:
 cat .token
 ```
 
-(Şu an: `myWnzmXNXZbJ1tm1LlxqVsdD_DgR6q_YFyRKhSO4oqk`)
+(Token gizli — bu dosyaya hiçbir zaman yazma. `.token` ve `.env` zaten `.gitignore`'da.)
 
 ## 2. GitHub'da private repo oluştur
 
